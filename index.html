@@ -5,14 +5,14 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zenith-AI - AI Automation Agency</title>
+    <title>FYSION Intelligence - AI Automation Agency</title>
     <meta name="description" content="Supercharge your business with AI & Automation. We build intelligent solutions to streamline workflows, boost efficiency, and drive unprecedented growth." />
     <meta name="keywords" content="AI automation, artificial intelligence, business automation, AI chatbots, web development, app development, lead generation" />
-    <meta property="og:title" content="Zenith-AI - AI Automation Agency" />
+    <meta property="og:title" content="FYSION Intelligence - AI Automation Agency" />
     <meta property="og:description" content="Supercharge your business with AI & Automation. We build intelligent solutions to streamline workflows and drive growth." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Zenith-AI - AI Automation Agency" />
+    <meta name="twitter:title" content="FYSION Intelligence - AI Automation Agency" />
     <meta name="twitter:description" content="Supercharge your business with AI & Automation." />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -249,11 +249,30 @@
         transition: all 0.3s ease;
       }
 
-      .nav-link.active {
-        color: #60a5fa !important;
+      /* Hover Effect - Glow and Pop with Neon */
+      .nav-link:hover {
+        color: #00ffff !important;
         transform: translateY(-3px) scale(1.1);
-        text-shadow: 0 0 20px rgba(96, 165, 250, 0.8), 0 0 40px rgba(96, 165, 250, 0.4);
-        animation: navGlow 0.6s ease-out;
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00d9ff;
+      }
+
+      .nav-link:hover::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+        animation: navUnderline 0.3s ease-out;
+      }
+
+      /* Active State - Glow and Pop with Neon */
+      .nav-link.active {
+        color: #00ffff !important;
+        transform: translateY(-3px) scale(1.1);
+        text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00d9ff;
       }
 
       .nav-link.active::after {
@@ -263,23 +282,22 @@
         left: 0;
         right: 0;
         height: 2px;
-        background: linear-gradient(90deg, transparent, #60a5fa, transparent);
-        box-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
-        animation: navUnderline 0.6s ease-out;
+        background: linear-gradient(90deg, transparent, #00ffff, transparent);
+        box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
       }
 
-      @keyframes navGlow {
+        @keyframes navGlow {
         0% {
           transform: translateY(0) scale(1);
-          text-shadow: 0 0 0 rgba(96, 165, 250, 0);
+          text-shadow: 0 0 0 #00ffff;
         }
         50% {
           transform: translateY(-5px) scale(1.15);
-          text-shadow: 0 0 30px rgba(96, 165, 250, 1), 0 0 50px rgba(96, 165, 250, 0.6);
+          text-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 60px #00d9ff;
         }
         100% {
           transform: translateY(-3px) scale(1.1);
-          text-shadow: 0 0 20px rgba(96, 165, 250, 0.8), 0 0 40px rgba(96, 165, 250, 0.4);
+          text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00d9ff;
         }
       }
 

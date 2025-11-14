@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Contact3D: React.FC = () => (
-  <div className="absolute bottom-10 left-10 w-16 h-16 floating-shape opacity-15 pointer-events-none hidden lg:block">
+  <div className="absolute bottom-10 left-10 w-16 h-16 floating-shape opacity-25 pointer-events-none hidden lg:block">
     <div className="w-full h-full relative robot-3d">
-      <div className="absolute inset-0 bg-cyan-400/20 rounded-lg transform rotate-45 border border-cyan-400/30"></div>
-      <div className="absolute inset-2 bg-blue-500/20 rounded-lg border border-blue-500/30"></div>
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-300 rounded-full"></div>
+      <div className="absolute inset-0 bg-cyan-500/30 rounded-lg transform rotate-45 border border-cyan-400/60" style={{ boxShadow: '0 0 20px rgba(0, 255, 255, 0.5)' }}></div>
+      <div className="absolute inset-2 bg-cyan-400/30 rounded-lg border border-cyan-500/60" style={{ boxShadow: '0 0 15px rgba(0, 255, 255, 0.4)' }}></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 bg-cyan-300 rounded-full" style={{ boxShadow: '0 0 10px rgba(0, 255, 255, 0.8)' }}></div>
     </div>
   </div>
 );
@@ -47,7 +47,7 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-16 bg-gray-900/50 relative">
+    <section id="contact" className="py-16 bg-black/40 relative">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <Contact3D />
       </div>
@@ -56,21 +56,21 @@ const Contact: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Let's Build Together</h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">Have a project in mind or just want to learn more? We'd love to hear from you.</p>
         </div>
-        <div ref={formRef} className={`max-w-4xl mx-auto bg-gray-800/50 backdrop-blur-sm p-8 rounded-xl border border-gray-700/50 scroll-scale-up ${formVisible ? 'visible' : ''}`}>
+        <div ref={formRef} className={`max-w-4xl mx-auto bg-black/60 backdrop-blur-sm p-8 rounded-xl border border-cyan-500/30 scroll-scale-up ${formVisible ? 'visible' : ''} shadow-[0_0_30px_rgba(0,255,255,0.2)]`}>
           <form onSubmit={handleSubmit}>
             <div className="grid md:grid-cols-2 gap-6 mb-6">
               <div>
                 <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-300">Your Name</label>
-                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="John Doe" required />
+                <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} className="bg-black/40 border border-cyan-500/30 text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-400 focus:shadow-[0_0_15px_rgba(0,255,255,0.3)] block w-full p-2.5 transition-all duration-300" placeholder="John Doe" required />
               </div>
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-300">Your Email</label>
-                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="john.doe@email.com" required />
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="bg-black/40 border border-cyan-500/30 text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-400 focus:shadow-[0_0_15px_rgba(0,255,255,0.3)] block w-full p-2.5 transition-all duration-300" placeholder="john.doe@email.com" required />
               </div>
             </div>
             <div className="mb-6">
               <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-300">Your Message</label>
-              <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="bg-gray-700 border border-gray-600 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Tell us about your project..." required></textarea>
+              <textarea id="message" name="message" rows={4} value={formData.message} onChange={handleChange} className="bg-black/40 border border-cyan-500/30 text-white text-sm rounded-lg focus:ring-cyan-500 focus:border-cyan-400 focus:shadow-[0_0_15px_rgba(0,255,255,0.3)] block w-full p-2.5 transition-all duration-300" placeholder="Tell us about your project..." required></textarea>
             </div>
             {submitStatus === 'success' && (
               <div className="mb-6 p-4 bg-green-500/20 border border-green-500/50 rounded-lg text-green-400 text-center">
@@ -86,7 +86,7 @@ const Contact: React.FC = () => {
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 disabled:from-gray-600 disabled:to-gray-600 disabled:cursor-not-allowed text-white font-bold py-3 px-12 rounded-full text-lg transition-transform duration-300 ease-in-out hover:scale-105 disabled:hover:scale-100"
+                className="bg-gradient-to-r from-cyan-500 to-cyan-400 hover:from-cyan-400 hover:to-cyan-300 disabled:from-gray-600 disabled:to-gray-600 disabled:cursor-not-allowed text-black font-bold py-3 px-12 rounded-full text-lg transition-all duration-300 ease-in-out hover:scale-105 disabled:hover:scale-100 shadow-[0_0_20px_rgba(0,255,255,0.5)] hover:shadow-[0_0_40px_rgba(0,255,255,0.8)]"
               >
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
