@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import emailjs from '@emailjs/browser';
 
 const Contact3D: React.FC = () => (
   <div className="absolute bottom-10 left-10 w-16 h-16 floating-shape opacity-25 pointer-events-none hidden lg:block">
@@ -30,15 +31,30 @@ const Contact: React.FC = () => {
     setSubmitStatus('idle');
     
     try {
-      // Simulate API call - replace with actual backend endpoint
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      console.log('Form Submitted:', formData);
+      // EmailJS configuration - get from environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_email: 'fysion3@gmail.com',
+        },
+        publicKey
+      );
+
       setSubmitStatus('success');
       setFormData({ name: '', email: '', message: '' });
       
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } catch (error) {
+      console.error('Email sending failed:', error);
       setSubmitStatus('error');
       setTimeout(() => setSubmitStatus('idle'), 5000);
     } finally {
