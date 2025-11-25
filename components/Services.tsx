@@ -1,82 +1,126 @@
 import React from 'react';
-import type { Service } from '../types';
-import WorkflowIcon from './icons/WorkflowIcon';
-import TasksIcon from './icons/TasksIcon';
-import BusinessIcon from './icons/BusinessIcon';
-import BotIcon from './icons/BotIcon';
-import CodeIcon from './icons/CodeIcon';
-import MarketingIcon from './icons/MarketingIcon';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
-const services: Service[] = [
-  { icon: WorkflowIcon, title: 'Simplified AI Workflows', description: 'We design and implement intuitive AI-powered workflows to enhance productivity and reduce complexity.' },
-  { icon: TasksIcon, title: 'Automating Repetitive Tasks', description: 'Free up your team\'s valuable time by automating mundane and repetitive tasks with intelligent bots.' },
-  { icon: BusinessIcon, title: 'AI for Business Owners', description: 'Leverage AI to gain strategic insights, optimize operations, and make data-driven decisions for growth.' },
-  { icon: BotIcon, title: 'Automating Customer Service', description: 'Enhance customer satisfaction with 24/7 AI-powered support, instant responses, and personalized interactions.' },
-  { icon: MarketingIcon, title: 'Lead Generation Automation', description: 'Automatically identify, qualify, and nurture leads using AI, filling your sales pipeline effortlessly.' },
-  { icon: BotIcon, title: 'AI Chatbots', description: 'Deploy intelligent chatbots on your website and social media to engage visitors and convert them into customers.' },
-  { icon: BotIcon, title: 'AI Voice Call Agents', description: 'Implement sophisticated voice agents for customer service, appointment setting, and outbound calls.' },
-  { icon: CodeIcon, title: 'Web Development', description: 'Creating modern, responsive, and high-performance websites tailored to your business needs.' },
-  { icon: CodeIcon, title: 'App Development', description: 'Building custom mobile applications for iOS and Android to connect with your customers on the go.' },
-  { icon: BusinessIcon, title: 'Google Business Profiles', description: 'Optimize your GBP listing to improve local SEO, attract more customers, and manage your online reputation.' },
-  { icon: MarketingIcon, title: 'Digital Marketing', description: 'Comprehensive digital marketing strategies including SEO, SEM, and content marketing to boost your online presence.' },
+const services = [
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+      </svg>
+    ),
+    title: 'Intelligent Chatbots',
+    description: 'Deploy AI-powered chatbots that understand context, learn from interactions, and provide 24/7 customer support.',
+    features: [
+      'Natural language processing',
+      'Multi-language support',
+      'Seamless integrations',
+      'CRM integration'
+    ],
+    badge: null,
+    color: 'from-pink-500 to-rose-500'
+  },
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+      </svg>
+    ),
+    title: 'AI Call Agents',
+    description: 'Intelligent voice agents that handle calls, customizable to your business needs for customer service and sales.',
+    features: [
+      'Custom voice personalities',
+      'Appointment scheduling',
+      'Lead qualification',
+      'Real-time call analytics'
+    ],
+    badge: 'Most Popular',
+    color: 'from-purple-500 to-violet-500'
+  },
+  {
+    icon: (
+      <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+      </svg>
+    ),
+    title: 'Workflow Automation',
+    description: 'Automate repetitive tasks and streamline complex workflows with intelligent process automation.',
+    features: [
+      'Custom workflow design',
+      'API integrations',
+      'Task scheduling',
+      'Real-time monitoring'
+    ],
+    badge: null,
+    color: 'from-blue-500 to-cyan-500'
+  }
 ];
-
-const ServiceCard: React.FC<{ service: Service }> = ({ service }) => (
-  <div className="service-card-3d bg-black/60 backdrop-blur-sm p-6 rounded-xl border border-cyan-500/30 hover:border-cyan-400/80 hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] transition-all duration-300">
-    <div className="mb-4 icon-3d">
-      <service.icon />
-    </div>
-    <h3 className="text-xl font-bold mb-2 text-white">{service.title}</h3>
-    <p className="text-gray-300">{service.description}</p>
-  </div>
-);
-
-const Robot3D: React.FC = () => (
-  <div className="robot-3d absolute bottom-10 right-10 w-32 h-40 opacity-20 pointer-events-none hidden lg:block">
-    {/* Robot Head */}
-    <div className="robot-head absolute top-0 left-1/2 -translate-x-1/2 w-12 h-12 bg-cyan-500/40 rounded-lg border border-cyan-400/70" style={{ boxShadow: '0 0 15px rgba(0, 255, 255, 0.6)' }}>
-      <div className="absolute top-2 left-2 w-2 h-2 bg-cyan-300 rounded-full" style={{ boxShadow: '0 0 10px rgba(0, 255, 255, 0.8)' }}></div>
-      <div className="absolute top-2 right-2 w-2 h-2 bg-cyan-300 rounded-full" style={{ boxShadow: '0 0 10px rgba(0, 255, 255, 0.8)' }}></div>
-    </div>
-    {/* Robot Body */}
-    <div className="robot-body absolute top-12 left-1/2 -translate-x-1/2 w-16 h-20 bg-cyan-500/40 rounded-lg border border-cyan-400/70" style={{ boxShadow: '0 0 20px rgba(0, 255, 255, 0.5)' }}>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4 h-4 bg-cyan-300/60 rounded-full" style={{ boxShadow: '0 0 15px rgba(0, 255, 255, 0.7)' }}></div>
-    </div>
-    {/* Robot Arms */}
-    <div className="absolute top-14 left-0 w-4 h-8 bg-cyan-500/40 rounded border border-cyan-400/70 transform -rotate-12" style={{ boxShadow: '0 0 10px rgba(0, 255, 255, 0.5)' }}></div>
-    <div className="absolute top-14 right-0 w-4 h-8 bg-cyan-500/40 rounded border border-cyan-400/70 transform rotate-12" style={{ boxShadow: '0 0 10px rgba(0, 255, 255, 0.5)' }}></div>
-  </div>
-);
 
 const Services: React.FC = () => {
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { elementRef: cardsRef, isVisible: cardsVisible } = useScrollAnimation();
 
   return (
-    <section id="services" className="pb-16 relative">
-      {/* 3D Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 w-32 h-32 floating-shape opacity-30">
-          <div className="w-full h-full border-2 border-cyan-400/50 rounded-lg transform rotate-45" style={{ boxShadow: '0 0 30px rgba(0, 255, 255, 0.4)' }}></div>
-        </div>
-        <div className="absolute bottom-20 right-10 w-24 h-24 floating-shape opacity-30">
-          <div className="w-full h-full border-2 border-cyan-500/50 rounded-full" style={{ boxShadow: '0 0 25px rgba(0, 255, 255, 0.4)' }}></div>
-        </div>
-        <div className="absolute top-1/2 left-1/4 w-16 h-16 floating-shape opacity-25">
-          <div className="w-full h-full bg-cyan-500/30 rounded-lg transform rotate-12" style={{ boxShadow: '0 0 20px rgba(0, 255, 255, 0.3)' }}></div>
-        </div>
-        <Robot3D />
-      </div>
+    <section id="services" className="py-20 relative">
       <div className="container mx-auto px-6 relative z-10">
-        <div ref={headerRef} className={`text-center mb-12 scroll-fade-in ${headerVisible ? 'visible' : ''}`}>
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-4">Our Services</h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">We offer a comprehensive suite of AI and development services to transform your business.</p>
+        {/* Header */}
+        <div ref={headerRef} className={`text-center mb-16 scroll-fade-in ${headerVisible ? 'visible' : ''}`}>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-4">Our AI Solutions</h2>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            Comprehensive automation services tailored to your business needs
+          </p>
         </div>
-        <div ref={cardsRef} className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-stagger ${cardsVisible ? 'visible' : ''}`}>
+
+        {/* Service Cards */}
+        <div ref={cardsRef} className={`grid grid-cols-1 md:grid-cols-3 gap-8 scroll-stagger ${cardsVisible ? 'visible' : ''}`}>
           {services.map((service, index) => (
-            <ServiceCard key={index} service={service} />
+            <div
+              key={index}
+              className="relative bg-gradient-to-br from-black/60 to-purple-900/20 backdrop-blur-sm p-8 rounded-2xl border border-purple-500/30 hover:border-purple-400/60 transition-all duration-300 hover:shadow-[0_0_40px_rgba(167,139,250,0.3)] group"
+            >
+              {/* Badge */}
+              {service.badge && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <span className="bg-gradient-to-r from-purple-500 to-violet-500 text-white text-xs font-bold px-4 py-1 rounded-full shadow-lg">
+                    {service.badge}
+                  </span>
+                </div>
+              )}
+
+              {/* Icon */}
+              <div className={`w-16 h-16 bg-gradient-to-br ${service.color} rounded-xl flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform duration-300`}>
+                {service.icon}
+              </div>
+
+              {/* Title */}
+              <h3 className="text-2xl font-bold mb-3 text-white">{service.title}</h3>
+
+              {/* Description */}
+              <p className="text-gray-400 mb-6 leading-relaxed">{service.description}</p>
+
+              {/* Features */}
+              <ul className="space-y-3">
+                {service.features.map((feature, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <svg className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span className="text-gray-300 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
+        </div>
+      </div>
+
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
+        <div className="absolute top-20 left-10 w-32 h-32 floating-shape">
+          <div className="w-full h-full border-2 border-purple-400/50 rounded-lg transform rotate-45" style={{ boxShadow: '0 0 30px rgba(167, 139, 250, 0.4)' }}></div>
+        </div>
+        <div className="absolute bottom-20 right-10 w-24 h-24 floating-shape">
+          <div className="w-full h-full border-2 border-purple-500/50 rounded-full" style={{ boxShadow: '0 0 25px rgba(167, 139, 250, 0.4)' }}></div>
         </div>
       </div>
     </section>

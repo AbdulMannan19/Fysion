@@ -21,48 +21,53 @@ const PrivacyPolicy: React.FC = () => {
           
           <section>
             <h2 className="text-2xl font-semibold text-cyan-400 mb-4">1. Information We Collect</h2>
-            <p>We collect information that you provide directly to us when you contact us through our website, including your name, email address, and any other information you choose to provide.</p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">2. How We Use Your Information</h2>
-            <p>We use the information we collect to:</p>
+            <p>We collect information to operate our AI automation services, including:</p>
             <ul className="list-disc list-inside ml-4 mt-2 space-y-2">
-              <li>Respond to your inquiries and provide customer support</li>
-              <li>Send you updates about our services</li>
-              <li>Improve our website and services</li>
-              <li>Comply with legal obligations</li>
+              <li><strong>Personal Information:</strong> Name, email address, and phone number when provided directly or via our AI interfaces.</li>
+              <li><strong>WhatsApp Interaction Data:</strong> When you interact with our AI agents (e.g., for food ordering), we collect your phone number, profile name, and the content of your messages.</li>
+              <li><strong>Order Details:</strong> Specific preferences, order history, and delivery details necessary to fulfill requests.</li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">3. Information Sharing</h2>
-            <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as required by law or to protect our rights.</p>
+            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">2. How We Use Your Information</h2>
+            <p>We use the collected information for the following purposes:</p>
+            <ul className="list-disc list-inside ml-4 mt-2 space-y-2">
+              <li><strong>Service Facilitation:</strong> To process food orders, manage reservations, and answer customer queries via our AI agents.</li>
+              <li><strong>Quality Assurance & AI Training:</strong> We review chat histories to ensure our AI agent answers queries accurately and to improve the performance of our automation systems.</li>
+              <li><strong>Communication:</strong> To send order confirmations, status updates, and service notifications.</li>
+              <li><strong>Compliance:</strong> To comply with legal obligations and Meta's platform policies.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">3. Data Storage and Third-Party Processors</h2>
+            <p>To provide our services, we utilize secure third-party infrastructure:</p>
+            <ul className="list-disc list-inside ml-4 mt-2 space-y-2">
+              <li><strong>Supabase:</strong> We use Supabase to securely store chat histories, logs, and order data. This data is retained to maintain service history and strictly for quality assurance purposes.</li>
+              <li><strong>AI Providers:</strong> Message content is processed by Large Language Models (LLMs) to generate responses. These providers are bound by strict data privacy agreements.</li>
+            </ul>
+            <p className="mt-2">We do not sell or trade your personal information to outside parties.</p>
           </section>
 
           <section>
             <h2 className="text-2xl font-semibold text-cyan-400 mb-4">4. Data Security</h2>
-            <p>We implement appropriate security measures to protect your personal information. However, no method of transmission over the internet is 100% secure.</p>
+            <p>We implement appropriate security measures to protect your personal information stored in our databases. Access to chat logs for quality assurance is restricted to authorized personnel only.</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">5. Cookies</h2>
-            <p>Our website may use cookies to enhance user experience. You can choose to disable cookies through your browser settings.</p>
+            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">5. User Rights and Data Deletion</h2>
+            <p>You have the right to access, correct, or delete your personal information. If you wish to have your chat history or personal data removed from our systems (Supabase), please contact us. We will process deletion requests in accordance with applicable laws.</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">6. Your Rights</h2>
-            <p>You have the right to access, correct, or delete your personal information. Contact us at fysion3@gmail.com to exercise these rights.</p>
+            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">6. Changes to This Policy</h2>
+            <p>We may update this privacy policy to reflect changes in our data processing practices or platform requirements. We encourage users to review this page periodically.</p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">7. Changes to This Policy</h2>
-            <p>We may update this privacy policy from time to time. We will notify you of any changes by posting the new policy on this page.</p>
-          </section>
-
-          <section>
-            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">8. Contact Us</h2>
-            <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+            <h2 className="text-2xl font-semibold text-cyan-400 mb-4">7. Contact Us</h2>
+            <p>For questions regarding this Privacy Policy or to request data deletion, please contact us at:</p>
             <p className="mt-2">Email: <a href="mailto:fysion3@gmail.com" className="text-cyan-400 hover:text-cyan-300">fysion3@gmail.com</a></p>
           </section>
         </div>
