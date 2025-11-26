@@ -48,7 +48,7 @@ const About: React.FC = () => {
               ))}
             </div>
           </div>
-          <div ref={rightRef} className={`relative h-96 scroll-slide-right ${rightVisible ? 'visible' : ''}`}>
+          <div ref={rightRef} className={`relative h-[700px] scroll-slide-right ${rightVisible ? 'visible' : ''}`}>
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-72 h-72 bg-purple-500/30 rounded-full blur-2xl" style={{ boxShadow: '0 0 80px rgba(167, 139, 250, 0.4)' }}></div>
             <div className="absolute bottom-0 left-1/4 -translate-x-1/2 w-72 h-72 bg-violet-400/30 rounded-full blur-2xl" style={{ boxShadow: '0 0 80px rgba(196, 181, 253, 0.4)' }}></div>
             <img src="/Images/Our-work.jpg" alt="Team discussing" className="relative z-10 w-full h-full object-cover rounded-xl shadow-2xl" />
